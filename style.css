@@ -1,124 +1,132 @@
 /* Styles for HOSPITAL.HTML */
+
+:root {
+    --main-bg-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #0a2463; /* Strong dark blue */
+    --accent-color: #3d70b2;  /* Lighter, vibrant blue */
+    --secondary-bg-color: #f4f7f9; /* Very light gray for e.g. nav or form bg */
+    --footer-bg-color: #0a2463; /* Using primary for footer */
+    --light-text-color: #ffffff; 
+    --subtle-border-color: #e0e0e0;
+    --accent-color-translucent: rgba(61, 112, 178, 0.3); /* For box-shadows */
+    --darker-primary-hover: #081f53; /* Darker shade of primary for hover */
+    --body-bg-overlay-color: rgba(255, 255, 255, 0.92); /* Overlay for body background image */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    color: #333;
-    overflow-x: hidden; /* Prevent horizontal scrollbar if animations cause slight overflow */
+    background-color: var(--main-bg-color); 
+    background-image: linear-gradient(var(--body-bg-overlay-color), var(--body-bg-overlay-color)), url('images/eye-background-main.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: var(--text-color);
+    overflow-x: hidden; 
 }
 
 header {
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 25px 0; 
+    border-bottom: 3px solid var(--accent-color); 
+    text-align: center; 
 }
 
 header h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2.5em;
-    color: #2c3e50;
-    text-align: center;
+    color: var(--light-text-color);
     margin-top: 0;
     margin-bottom: 10px;
 }
 
 header p {
     font-size: 1.2em;
-    color: #555;
-    text-align: center;
-    margin-bottom: 15px;
+    color: var(--light-text-color);
+    opacity: 0.9; 
+    margin-bottom: 0; 
 }
 
-header hr {
+/* General HR styling */
+hr {
     border: none;
     height: 1px;
-    background-color: #ccc;
-    width: 50%;
-    margin: auto;
-    margin-bottom: 20px;
+    background-color: var(--subtle-border-color);
+    width: 80%; /* Default width for HRs */
+    margin: 30px auto; /* Default margin for HRs */
 }
 
 nav {
-    background-color: #f8f9fa;
+    background-color: var(--secondary-bg-color);
     padding: 15px 0;
     text-align: center;
     margin-bottom: 30px;
-    border-bottom: 1px solid #e7e7e7;
-}
-
-nav a {
-    text-decoration: none;
-    color: #34495e;
-    padding: 10px 15px;
-    margin: 0 5px;
-    border-radius: 4px;
-    transition: all 0.3s ease-in-out; /* Updated transition */
-}
-
-nav a:hover {
-    background-color: #34495e;
-    color: #ffffff;
-    text-decoration: none;
+    border-bottom: 1px solid var(--subtle-border-color);
+    position: relative;
+    z-index: 10; 
 }
 
 main {
     width: 80%;
     margin: auto;
     padding: 20px 0;
+    position: relative; 
+    z-index: 5; 
 }
 
 section {
+    background-color: var(--main-bg-color); 
+    padding: 20px; 
     margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px dashed #eee;
-    opacity: 0; /* Initial state for animation */
-    animation: fadeInUp 0.7s ease-out forwards; /* Added animation - default delay set by first section */
+    border: 1px solid var(--subtle-border-color); 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+    opacity: 0; 
+    animation: fadeInUp 0.7s ease-out forwards;
 }
-
-/* Staggering animation for multiple sections */
-section:nth-of-type(1) {
-    animation-delay: 0.3s;
-}
-section:nth-of-type(2) {
-    animation-delay: 0.5s;
-}
-section:nth-of-type(3) {
-    animation-delay: 0.7s;
-}
-section:nth-of-type(4) { /* For the 4th section (Contact Us) */
-    animation-delay: 0.9s;
-}
-
 
 section:last-of-type {
-    border-bottom: none;
+    /* No specific change needed if all sections have full border */
 }
+
+section:nth-of-type(1) { animation-delay: 0.3s; }
+section:nth-of-type(2) { animation-delay: 0.5s; }
+section:nth-of-type(3) { animation-delay: 0.7s; }
+section:nth-of-type(4) { animation-delay: 0.9s; }
 
 section h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.8em;
-    color: #333;
+    color: var(--primary-color); 
     text-align: center;
-    margin-top: 0;
+    margin-top: 0; 
     margin-bottom: 25px;
 }
 
-section p {
+section p { /* General paragraphs within sections */
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
     line-height: 1.7;
-    color: #555;
-    text-align: center;
+    color: var(--text-color); 
+    text-align: center; /* Default for section paragraphs */
     margin-bottom: 15px;
 }
 
-section ul {
-    width: 70%;
+section ul { /* For regular lists like in Contact Us Hours */
+    width: 90%; 
     margin: 20px auto;
     list-style-type: disc;
     list-style-position: outside;
     padding-left: 25px;
-    color: #555;
+    color: var(--text-color); 
     text-align: left;
 }
 
@@ -127,19 +135,83 @@ section ul li {
     line-height: 1.6;
 }
 
-section strong {
+section strong { /* General strong tags in sections */
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--accent-color); 
+}
+
+/* Card Layout Styling */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Added margin for space before potential HR or other content */
+    list-style: none; 
+    padding: 0; 
+    width: 100%; 
+}
+
+.card {
+    background-color: var(--main-bg-color); 
+    border: 1px solid var(--subtle-border-color);
+    border-radius: 8px;
+    padding: 25px; 
+    margin: 15px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08); 
+    flex-basis: calc(33.333% - 30px); 
+    box-sizing: border-box; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.card strong { 
+    display: block; 
+    margin-top: 10px; 
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: var(--primary-color); 
+    text-align: center; 
+}
+
+/* Icon Placeholder Styling */
+.icon-placeholder { /* Default for cards */
+    margin-right: 0; 
+    margin-bottom: 10px; 
+    color: var(--accent-color);
+    font-size: 1.8em; 
+    font-weight: normal; 
+    display: block; 
+    text-align: center;
+}
+
+/* Specific styling for icons in the contact section (not cards) */
+#contact p .icon-placeholder,
+#contact ul .icon-placeholder { /* For icons in contact paragraphs and list items */
+    font-size: 1em; 
+    margin-right: 8px; 
+    margin-bottom: 0; 
+    display: inline; 
+    vertical-align: middle; 
 }
 
 /* Online Registration Form Styling */
 #registration form {
-    width: 60%;
-    margin: 30px auto;
-    background-color: #f9f9f9;
+    width: 100%; 
+    margin: 0 auto; 
+    background-color: var(--secondary-bg-color); 
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+    border: 1px solid var(--subtle-border-color); 
     text-align: left;
 }
 
@@ -147,7 +219,7 @@ section strong {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color); 
 }
 
 #registration input[type="text"],
@@ -157,12 +229,12 @@ section strong {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--subtle-border-color); 
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 1em;
-    background-color: #fff;
-    color: #333;
+    background-color: var(--main-bg-color); 
+    color: var(--text-color);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -170,8 +242,8 @@ section strong {
 #registration input[type="tel"]:focus,
 #registration input[type="email"]:focus,
 #registration select:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    border-color: var(--accent-color); 
+    box-shadow: 0 0 8px var(--accent-color-translucent); 
     outline: none;
 }
 
@@ -181,8 +253,8 @@ section strong {
     min-width: 200px;
     margin: 20px auto 0;
     padding: 12px 25px;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--primary-color); 
+    color: var(--light-text-color); 
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -192,7 +264,7 @@ section strong {
 }
 
 #registration button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: var(--darker-primary-hover); 
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
 }
@@ -200,68 +272,77 @@ section strong {
 /* Contact Section Specifics */
 #contact h3 {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 0; 
     margin-bottom: 15px;
-    color: #333;
+    color: var(--primary-color); 
     font-size: 1.5em;
 }
-#contact ul {
-    width: auto;
+#contact ul { 
+    width: auto; 
     margin: 20px auto;
     list-style: none;
     padding: 0;
-    color: #555;
-    text-align: center;
+    color: var(--text-color);
+    text-align: center; 
 }
-#contact ul li {
+#contact ul li { 
     margin-bottom: 8px;
     line-height: 1.6;
+    text-align: left; 
+    display: inline-block; 
+    width: auto; 
 }
+#contact ul li .icon-placeholder {
+    vertical-align: middle;
+}
+
 
 footer {
-    background-color: #34495e;
-    color: #ecf0f1;
-    padding: 30px 20px; /* Ensure some horizontal padding as well */
+    background-color: var(--footer-bg-color); 
+    color: var(--light-text-color); 
+    padding: 30px 20px;
     text-align: center;
     margin-top: 40px;
-    border-top: 3px solid #007bff;
+    border-top: 3px solid var(--accent-color); 
+    position: relative; 
+    z-index: 10;
 }
 
-footer p { /* General footer paragraph styling */
+footer p {
     margin-bottom: 10px;
-    /* text-align: center !important; -- inherited from footer, !important not needed */
-    color: #ecf0f1;
-    font-size: 1em; /* Explicitly set default font size for footer paragraphs */
+    color: var(--light-text-color);
+    font-size: 1em;
 }
 
-footer p:last-of-type { /* Specifically for the copyright paragraph */
-    font-size: 0.9em; /* Slightly smaller for copyright */
-    margin-top: 20px; /* Space above copyright */
-    margin-bottom: 0; /* No margin below copyright */
+footer p:last-of-type {
+    font-size: 0.9em;
+    margin-top: 20px;
+    margin-bottom: 0;
+    opacity: 0.8; 
 }
 
-footer ul { /* For social media links */
+footer ul {
     list-style: none;
     padding: 0;
-    margin-top: 10px; /* Space above the social media list */
+    margin-top: 10px;
     margin-bottom: 15px;
 }
 
 footer ul li {
-    display: inline; /* Display links in a row */
-    margin: 0 12px; /* Adjusted margin for a bit more spacing */
+    display: inline;
+    margin: 0 12px;
 }
 
 footer ul li a {
-    color: #ecf0f1;
+    color: var(--light-text-color); 
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.2s ease; /* Added transform to transition */
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
 footer ul li a:hover {
-    color: #007bff; /* Accent color on hover */
+    color: var(--accent-color); 
     text-decoration: underline;
-    transform: translateY(-2px); /* Slight lift effect on hover */
+    transform: translateY(-2px);
 }
 
 /* Keyframes for Animations */
@@ -280,162 +361,84 @@ footer ul li a:hover {
 
 /* Tablet Breakpoint */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2em; /* Slightly smaller */
+    header { padding: 20px 0; }
+    header h1 { font-size: 2em; }
+    header p { font-size: 1em; }
+
+    nav a { padding: 8px 10px; font-size: 0.95em; }
+    main { width: 90%; }
+    
+    section { padding: 15px; } 
+    section h2 { font-size: 1.6em; } 
+    section ul { width: 95%; } 
+    #contact ul { width: 95%; }
+    
+    .card-container {
+        /* Retain space-around or switch to space-between if preferred */
+    }
+    .card {
+        flex-basis: calc(50% - 30px); /* 2 cards per row */
     }
 
-    header p {
-        font-size: 1em; /* Slightly smaller */
+    section#registration { 
     }
-
-    nav a {
-        padding: 8px 10px; /* Reduce padding */
-        font-size: 0.95em; /* Slightly smaller font */
-    }
-
-    main {
-        width: 90%; /* More space */
-    }
-
-    section h2 {
-        font-size: 1.5em; /* Smaller section titles */
-    }
-
-    section ul { /* General lists in sections */
-        width: 85%; /* Adjust list width */
-    }
-
-    #contact ul { /* Specific for contact hours list, ensure it also behaves well */
-        width: 85%;
-    }
-
-    #registration form {
-        width: 85%; /* Adjust form width */
-        padding: 20px; /* Reduce padding slightly */
-    }
+    #registration form { 
+        width: auto; 
+        padding: 20px; 
+    } 
 }
 
 /* Mobile Breakpoint */
 @media (max-width: 480px) {
-    /* Consider adjusting body font-size for overall scaling if needed, e.g., font-size: 15px; */
-    /* However, adjusting individual elements provides more control. */
+    header { padding: 15px 0; }
+    header h1 { font-size: 1.8em; } 
+    header p { font-size: 0.95em; margin-bottom: 10px; } 
+    
+    hr { width: 90%; margin: 20px auto; } /* HRs on mobile */
 
-    header {
-        padding: 15px 0;
+    nav { padding: 10px 0; margin-bottom: 20px; }
+    nav a { display: block; width: 80%; margin: 8px auto; padding: 10px; font-size: 1em; text-align: center; }
+
+    main { width: 95%; padding: 10px 0; }
+    section { padding: 15px; margin-bottom: 20px; } 
+    section h2 { font-size: 1.4em; margin-bottom: 15px; } 
+    section p { font-size: 0.9em; line-height: 1.6; } 
+    section ul { width: 95%; padding-left: 20px; } 
+    #contact ul { width: 95%; } 
+    section ul li { margin-bottom: 8px; }
+
+    .card-container {
+        justify-content: center; /* Center single card column */
+    }
+    .card {
+        flex-basis: calc(100% - 30px); /* 1 card per row */
+        margin-left: 10px; 
+        margin-right: 10px;
+    }
+    .card P { 
+      font-size: 0.9em;
     }
 
-    header h1 {
-        font-size: 1.7em; /* Further reduce */
-    }
 
-    header p {
-        font-size: 0.9em; /* Further reduce */
-        margin-bottom: 10px;
-    }
-
-    header hr {
-        width: 70%;
-        margin-bottom: 15px;
-    }
-
-    nav {
-        padding: 10px 0;
-        margin-bottom: 20px;
-    }
-
-    nav a {
-        display: block; /* Stack navigation links */
-        width: 80%; /* Control width of block links */
-        margin: 8px auto; /* Center block links and add vertical space */
-        padding: 10px;
-        font-size: 1em; /* Reset or adjust font size */
-        text-align: center; /* Ensure text within links is centered */
-    }
-
-    main {
-        width: 95%; /* Almost full width */
-        padding: 10px 0;
-    }
-
-    section {
-        padding-bottom: 15px;
-        margin-bottom: 20px;
-    }
-
-    section h2 {
-        font-size: 1.3em; /* Further reduce */
-        margin-bottom: 15px;
-    }
-
-    section p {
-        font-size: 0.95em; /* Adjust paragraph font size */
-        line-height: 1.6;
-    }
-
-    section ul { /* General lists in sections */
-        width: 90%; /* Wider lists */
-        padding-left: 20px; /* Adjust padding if needed */
-    }
-
-    #contact ul { /* Specific for contact hours list */
-        width: 90%;
-    }
-
-    section ul li {
-        margin-bottom: 8px;
-    }
-
-    #registration form {
-        width: 95%; /* Wider form */
-        padding: 15px;
-    }
-
+    #registration form { 
+        padding: 15px; 
+    } 
     #registration input[type="text"],
     #registration input[type="tel"],
     #registration input[type="email"],
     #registration select,
-    #registration button[type="submit"] {
-        font-size: 1em; /* Ensure readable font size on mobile */
-        padding: 10px; /* Adjust padding for smaller screens */
-    }
+    #registration button[type="submit"] { font-size: 0.95em; padding: 12px; } 
+    
+    #registration button[type="submit"] { min-width: initial; width:100%; padding: 12px 20px; } 
+    
+    #contact h3 { font-size: 1.3em; } 
+    #contact ul li { text-align: center; display: block; } 
 
-    #registration button[type="submit"] {
-        min-width: 150px; /* Adjust min-width */
-        padding: 10px 20px;
-    }
 
-    #contact h3 {
-        font-size: 1.2em;
-    }
-
-    footer {
-        padding: 20px 10px; /* Adjust footer padding */
-        margin-top: 30px;
-    }
-
-    footer p {
-        font-size: 0.9em; /* Smaller footer text */
-    }
-
-    footer p:last-of-type { /* Copyright */
-        font-size: 0.8em; /* Even smaller copyright */
-        margin-top: 15px;
-    }
-
-    footer ul { /* Social media links */
-        margin-top: 8px;
-        margin-bottom: 10px;
-        /* Using flex for wrapping and centering */
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    footer ul li {
-        margin: 5px; /* Add some margin for wrapped items */
-    }
-
-    footer ul li a {
-        font-size: 0.9em;
-    }
+    footer { padding: 25px 10px; margin-top: 30px; } 
+    footer p { font-size: 0.85em; } 
+    footer p:last-of-type { font-size: 0.75em; margin-top: 15px; } 
+    footer ul { margin-top: 8px; margin-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: center; }
+    footer ul li { margin: 5px 8px; } 
+    footer ul li a { font-size: 0.85em; } 
 }
