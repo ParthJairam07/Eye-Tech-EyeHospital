@@ -1,5 +1,5 @@
-/* Styles for HOSPITAL.HTML */
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
 :root {
     --main-bg-color: #ffffff;
     --text-color: #333333;
@@ -11,7 +11,12 @@
     --subtle-border-color: #e0e0e0;
     --accent-color-translucent: rgba(61, 112, 178, 0.3); /* For box-shadows */
     --darker-primary-hover: #081f53; /* Darker shade of primary for hover */
-    --body-bg-overlay-color: rgba(255, 255, 255, 0.92); /* Overlay for body background image */
+
+    --font-family-headings: 'Montserrat', sans-serif;
+    --font-family-body: 'Open Sans', sans-serif;
+
+    --gradient-start-color: #e6f7ff; /* very light blue for body */
+    --gradient-end-color: #ccebff;   /* light blue for body */
 }
 
 html {
@@ -19,21 +24,26 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-body);
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: var(--main-bg-color); 
-    background-image: linear-gradient(var(--body-bg-overlay-color), var(--body-bg-overlay-color)), url('images/eye-background-main.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+    background-image: linear-gradient(135deg, var(--gradient-start-color), var(--gradient-end-color)); 
     color: var(--text-color);
     overflow-x: hidden; 
 }
 
+/* General Heading Styling */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-headings);
+    font-weight: 700; 
+    margin-top: 0; 
+}
+
+
 header {
-    background-color: var(--primary-color);
+    background-image: linear-gradient(135deg, var(--primary-color), var(--darker-primary-hover)); 
     color: var(--light-text-color);
     padding: 25px 0; 
     border-bottom: 3px solid var(--accent-color); 
@@ -41,14 +51,13 @@ header {
 }
 
 header h1 {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 2.5em;
     color: var(--light-text-color);
-    margin-top: 0;
     margin-bottom: 10px;
 }
 
 header p {
+    font-family: var(--font-family-body); 
     font-size: 1.2em;
     color: var(--light-text-color);
     opacity: 0.9; 
@@ -60,24 +69,48 @@ hr {
     border: none;
     height: 1px;
     background-color: var(--subtle-border-color);
-    width: 80%; /* Default width for HRs */
-    margin: 30px auto; /* Default margin for HRs */
+    width: 80%; 
+    margin: 30px auto; 
 }
 
 nav {
-    background-color: var(--secondary-bg-color);
-    padding: 15px 0;
+    background-color: transparent; 
+    padding: 0 10px; 
     text-align: center;
-    margin-bottom: 30px;
-    border-bottom: 1px solid var(--subtle-border-color);
+    margin-bottom: 0; 
+    border-bottom: 2px solid var(--primary-color); 
     position: relative;
     z-index: 10; 
 }
 
+nav a {
+    font-family: var(--font-family-headings); 
+    font-weight: 600; 
+    text-decoration: none;
+    display: inline-block; 
+    background-image: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--light-text-color); 
+    padding: 12px 20px; 
+    margin: 0; 
+    margin-right: -1px; /* For shared border effect */
+    border: 1px solid var(--primary-color); 
+    border-bottom: none; 
+    border-radius: 6px 6px 0 0; 
+    transition: all 0.3s ease;
+    position: relative; 
+}
+
+/* nav a:last-child { Removed, all tabs use negative margin for shared border } */
+
+nav a:hover {
+    background-image: linear-gradient(135deg, var(--accent-color), var(--primary-color)); 
+    color: var(--light-text-color); 
+}
+
 main {
     width: 80%;
-    margin: auto;
-    padding: 20px 0;
+    margin: 0 auto; 
+    padding: 30px 0 20px 0; 
     position: relative; 
     z-index: 5; 
 }
@@ -94,7 +127,7 @@ section {
 }
 
 section:last-of-type {
-    /* No specific change needed if all sections have full border */
+    /* No specific change needed */
 }
 
 section:nth-of-type(1) { animation-delay: 0.3s; }
@@ -103,24 +136,23 @@ section:nth-of-type(3) { animation-delay: 0.7s; }
 section:nth-of-type(4) { animation-delay: 0.9s; }
 
 section h2 {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.8em;
     color: var(--primary-color); 
     text-align: center;
-    margin-top: 0; 
     margin-bottom: 25px;
 }
 
-section p { /* General paragraphs within sections */
-    font-family: Arial, Helvetica, sans-serif;
+section p { 
+    font-family: var(--font-family-body); 
     font-size: 1em;
     line-height: 1.7;
     color: var(--text-color); 
-    text-align: center; /* Default for section paragraphs */
+    text-align: center; 
     margin-bottom: 15px;
 }
 
-section ul { /* For regular lists like in Contact Us Hours */
+section ul { 
+    font-family: var(--font-family-body); 
     width: 90%; 
     margin: 20px auto;
     list-style-type: disc;
@@ -135,8 +167,9 @@ section ul li {
     line-height: 1.6;
 }
 
-section strong { /* General strong tags in sections */
-    font-weight: bold;
+section strong { 
+    font-family: var(--font-family-body); 
+    font-weight: 700; 
     color: var(--accent-color); 
 }
 
@@ -146,7 +179,7 @@ section strong { /* General strong tags in sections */
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 20px;
-    margin-bottom: 20px; /* Added margin for space before potential HR or other content */
+    margin-bottom: 20px; 
     list-style: none; 
     padding: 0; 
     width: 100%; 
@@ -166,6 +199,7 @@ section strong { /* General strong tags in sections */
     flex-direction: column; 
     align-items: center; 
     text-align: center; 
+    font-family: var(--font-family-body); 
 }
 
 .card:hover {
@@ -174,6 +208,8 @@ section strong { /* General strong tags in sections */
 }
 
 .card strong { 
+    font-family: var(--font-family-headings); 
+    font-weight: 700;
     display: block; 
     margin-top: 10px; 
     margin-bottom: 10px;
@@ -183,7 +219,7 @@ section strong { /* General strong tags in sections */
 }
 
 /* Icon Placeholder Styling */
-.icon-placeholder { /* Default for cards */
+.icon-placeholder { 
     margin-right: 0; 
     margin-bottom: 10px; 
     color: var(--accent-color);
@@ -193,9 +229,8 @@ section strong { /* General strong tags in sections */
     text-align: center;
 }
 
-/* Specific styling for icons in the contact section (not cards) */
 #contact p .icon-placeholder,
-#contact ul .icon-placeholder { /* For icons in contact paragraphs and list items */
+#contact ul .icon-placeholder { 
     font-size: 1em; 
     margin-right: 8px; 
     margin-bottom: 0; 
@@ -216,6 +251,7 @@ section strong { /* General strong tags in sections */
 }
 
 #registration label {
+    font-family: var(--font-family-body);
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
@@ -226,6 +262,7 @@ section strong { /* General strong tags in sections */
 #registration input[type="tel"],
 #registration input[type="email"],
 #registration select {
+    font-family: var(--font-family-body);
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
@@ -248,6 +285,8 @@ section strong { /* General strong tags in sections */
 }
 
 #registration button[type="submit"] {
+    font-family: var(--font-family-headings); 
+    font-weight: 700; 
     display: block;
     width: auto;
     min-width: 200px;
@@ -259,7 +298,6 @@ section strong { /* General strong tags in sections */
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.1em;
-    font-weight: bold;
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
@@ -272,12 +310,12 @@ section strong { /* General strong tags in sections */
 /* Contact Section Specifics */
 #contact h3 {
     text-align: center;
-    margin-top: 0; 
     margin-bottom: 15px;
     color: var(--primary-color); 
     font-size: 1.5em;
 }
 #contact ul { 
+    font-family: var(--font-family-body);
     width: auto; 
     margin: 20px auto;
     list-style: none;
@@ -298,7 +336,7 @@ section strong { /* General strong tags in sections */
 
 
 footer {
-    background-color: var(--footer-bg-color); 
+    background-image: linear-gradient(135deg, var(--darker-primary-hover), var(--primary-color)); 
     color: var(--light-text-color); 
     padding: 30px 20px;
     text-align: center;
@@ -306,6 +344,7 @@ footer {
     border-top: 3px solid var(--accent-color); 
     position: relative; 
     z-index: 10;
+    font-family: var(--font-family-body); 
 }
 
 footer p {
@@ -365,23 +404,28 @@ footer ul li a:hover {
     header h1 { font-size: 2em; }
     header p { font-size: 1em; }
 
-    nav a { padding: 8px 10px; font-size: 0.95em; }
-    main { width: 90%; }
+    nav { padding: 0 5px; } 
+    nav a { 
+        padding: 10px 12px; 
+        font-size: 0.9em; 
+        margin-right: -1px; /* Keep shared border on tablet */
+    }
+    main { 
+        width: 90%; 
+        padding-top: 20px;
+    }
     
     section { padding: 15px; } 
     section h2 { font-size: 1.6em; } 
     section ul { width: 95%; } 
     #contact ul { width: 95%; }
     
-    .card-container {
-        /* Retain space-around or switch to space-between if preferred */
-    }
+    .card-container { }
     .card {
-        flex-basis: calc(50% - 30px); /* 2 cards per row */
+        flex-basis: calc(50% - 30px); 
     }
 
-    section#registration { 
-    }
+    section#registration { }
     #registration form { 
         width: auto; 
         padding: 20px; 
@@ -394,12 +438,31 @@ footer ul li a:hover {
     header h1 { font-size: 1.8em; } 
     header p { font-size: 0.95em; margin-bottom: 10px; } 
     
-    hr { width: 90%; margin: 20px auto; } /* HRs on mobile */
+    hr { width: 90%; margin: 20px auto; } 
 
-    nav { padding: 10px 0; margin-bottom: 20px; }
-    nav a { display: block; width: 80%; margin: 8px auto; padding: 10px; font-size: 1em; text-align: center; }
+    nav { 
+        padding: 10px; 
+        border-bottom: none; 
+        margin-bottom: 0; 
+    }
+    nav a { 
+        display: block; 
+        width: auto; 
+        margin: 0 0 5px 0; /* Remove horizontal margins for stacked tabs */
+        padding: 12px 15px; 
+        font-size: 1em; 
+        text-align: center; 
+        border-radius: 6px; 
+        border-bottom: 1px solid var(--primary-color); 
+        /* margin-right: 0; Already handled by full width and margin reset */
+    }
+    /* nav a:last-child { margin-bottom: 0; } Already handled by margin: 0 0 5px 0; */
 
-    main { width: 95%; padding: 10px 0; }
+
+    main { 
+        width: 95%; 
+        padding: 20px 0 10px 0; 
+    }
     section { padding: 15px; margin-bottom: 20px; } 
     section h2 { font-size: 1.4em; margin-bottom: 15px; } 
     section p { font-size: 0.9em; line-height: 1.6; } 
@@ -408,17 +471,15 @@ footer ul li a:hover {
     section ul li { margin-bottom: 8px; }
 
     .card-container {
-        justify-content: center; /* Center single card column */
+        justify-content: center; 
     }
     .card {
-        flex-basis: calc(100% - 30px); /* 1 card per row */
-        margin-left: 10px; 
-        margin-right: 10px;
+        flex-basis: calc(100% - 20px); 
+        margin: 10px; 
     }
     .card P { 
       font-size: 0.9em;
     }
-
 
     #registration form { 
         padding: 15px; 
@@ -433,7 +494,6 @@ footer ul li a:hover {
     
     #contact h3 { font-size: 1.3em; } 
     #contact ul li { text-align: center; display: block; } 
-
 
     footer { padding: 25px 10px; margin-top: 30px; } 
     footer p { font-size: 0.85em; } 
