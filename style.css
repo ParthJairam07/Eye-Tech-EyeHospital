@@ -1,0 +1,441 @@
+/* Styles for HOSPITAL.HTML */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal scrollbar if animations cause slight overflow */
+}
+
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+header h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5em;
+    color: #2c3e50;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #555;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+header hr {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+nav {
+    background-color: #f8f9fa;
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+nav a {
+    text-decoration: none;
+    color: #34495e;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out; /* Updated transition */
+}
+
+nav a:hover {
+    background-color: #34495e;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+main {
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #eee;
+    opacity: 0; /* Initial state for animation */
+    animation: fadeInUp 0.7s ease-out forwards; /* Added animation - default delay set by first section */
+}
+
+/* Staggering animation for multiple sections */
+section:nth-of-type(1) {
+    animation-delay: 0.3s;
+}
+section:nth-of-type(2) {
+    animation-delay: 0.5s;
+}
+section:nth-of-type(3) {
+    animation-delay: 0.7s;
+}
+section:nth-of-type(4) { /* For the 4th section (Contact Us) */
+    animation-delay: 0.9s;
+}
+
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+section h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.8em;
+    color: #333;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+section p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    line-height: 1.7;
+    color: #555;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+section ul {
+    width: 70%;
+    margin: 20px auto;
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 25px;
+    color: #555;
+    text-align: left;
+}
+
+section ul li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+section strong {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Online Registration Form Styling */
+#registration form {
+    width: 60%;
+    margin: 30px auto;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+#registration label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+#registration input[type="text"],
+#registration input[type="tel"],
+#registration input[type="email"],
+#registration select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#registration input[type="text"]:focus,
+#registration input[type="tel"]:focus,
+#registration input[type="email"]:focus,
+#registration select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+#registration button[type="submit"] {
+    display: block;
+    width: auto;
+    min-width: 200px;
+    margin: 20px auto 0;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#registration button[type="submit"]:hover {
+    background-color: #0056b3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Contact Section Specifics */
+#contact h3 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.5em;
+}
+#contact ul {
+    width: auto;
+    margin: 20px auto;
+    list-style: none;
+    padding: 0;
+    color: #555;
+    text-align: center;
+}
+#contact ul li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+footer {
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 30px 20px; /* Ensure some horizontal padding as well */
+    text-align: center;
+    margin-top: 40px;
+    border-top: 3px solid #007bff;
+}
+
+footer p { /* General footer paragraph styling */
+    margin-bottom: 10px;
+    /* text-align: center !important; -- inherited from footer, !important not needed */
+    color: #ecf0f1;
+    font-size: 1em; /* Explicitly set default font size for footer paragraphs */
+}
+
+footer p:last-of-type { /* Specifically for the copyright paragraph */
+    font-size: 0.9em; /* Slightly smaller for copyright */
+    margin-top: 20px; /* Space above copyright */
+    margin-bottom: 0; /* No margin below copyright */
+}
+
+footer ul { /* For social media links */
+    list-style: none;
+    padding: 0;
+    margin-top: 10px; /* Space above the social media list */
+    margin-bottom: 15px;
+}
+
+footer ul li {
+    display: inline; /* Display links in a row */
+    margin: 0 12px; /* Adjusted margin for a bit more spacing */
+}
+
+footer ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease; /* Added transform to transition */
+}
+
+footer ul li a:hover {
+    color: #007bff; /* Accent color on hover */
+    text-decoration: underline;
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Keyframes for Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablet Breakpoint */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em; /* Slightly smaller */
+    }
+
+    header p {
+        font-size: 1em; /* Slightly smaller */
+    }
+
+    nav a {
+        padding: 8px 10px; /* Reduce padding */
+        font-size: 0.95em; /* Slightly smaller font */
+    }
+
+    main {
+        width: 90%; /* More space */
+    }
+
+    section h2 {
+        font-size: 1.5em; /* Smaller section titles */
+    }
+
+    section ul { /* General lists in sections */
+        width: 85%; /* Adjust list width */
+    }
+
+    #contact ul { /* Specific for contact hours list, ensure it also behaves well */
+        width: 85%;
+    }
+
+    #registration form {
+        width: 85%; /* Adjust form width */
+        padding: 20px; /* Reduce padding slightly */
+    }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 480px) {
+    /* Consider adjusting body font-size for overall scaling if needed, e.g., font-size: 15px; */
+    /* However, adjusting individual elements provides more control. */
+
+    header {
+        padding: 15px 0;
+    }
+
+    header h1 {
+        font-size: 1.7em; /* Further reduce */
+    }
+
+    header p {
+        font-size: 0.9em; /* Further reduce */
+        margin-bottom: 10px;
+    }
+
+    header hr {
+        width: 70%;
+        margin-bottom: 15px;
+    }
+
+    nav {
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
+
+    nav a {
+        display: block; /* Stack navigation links */
+        width: 80%; /* Control width of block links */
+        margin: 8px auto; /* Center block links and add vertical space */
+        padding: 10px;
+        font-size: 1em; /* Reset or adjust font size */
+        text-align: center; /* Ensure text within links is centered */
+    }
+
+    main {
+        width: 95%; /* Almost full width */
+        padding: 10px 0;
+    }
+
+    section {
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+
+    section h2 {
+        font-size: 1.3em; /* Further reduce */
+        margin-bottom: 15px;
+    }
+
+    section p {
+        font-size: 0.95em; /* Adjust paragraph font size */
+        line-height: 1.6;
+    }
+
+    section ul { /* General lists in sections */
+        width: 90%; /* Wider lists */
+        padding-left: 20px; /* Adjust padding if needed */
+    }
+
+    #contact ul { /* Specific for contact hours list */
+        width: 90%;
+    }
+
+    section ul li {
+        margin-bottom: 8px;
+    }
+
+    #registration form {
+        width: 95%; /* Wider form */
+        padding: 15px;
+    }
+
+    #registration input[type="text"],
+    #registration input[type="tel"],
+    #registration input[type="email"],
+    #registration select,
+    #registration button[type="submit"] {
+        font-size: 1em; /* Ensure readable font size on mobile */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    #registration button[type="submit"] {
+        min-width: 150px; /* Adjust min-width */
+        padding: 10px 20px;
+    }
+
+    #contact h3 {
+        font-size: 1.2em;
+    }
+
+    footer {
+        padding: 20px 10px; /* Adjust footer padding */
+        margin-top: 30px;
+    }
+
+    footer p {
+        font-size: 0.9em; /* Smaller footer text */
+    }
+
+    footer p:last-of-type { /* Copyright */
+        font-size: 0.8em; /* Even smaller copyright */
+        margin-top: 15px;
+    }
+
+    footer ul { /* Social media links */
+        margin-top: 8px;
+        margin-bottom: 10px;
+        /* Using flex for wrapping and centering */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    footer ul li {
+        margin: 5px; /* Add some margin for wrapped items */
+    }
+
+    footer ul li a {
+        font-size: 0.9em;
+    }
+}
